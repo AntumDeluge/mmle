@@ -9,6 +9,8 @@ set(MMLE_VER_REL 0)
 
 include("${PROJECT_SOURCE_DIR}/cmake/options.cmake")
 
+configure_file("config.h.in" "include/${PROJECT_NAME}/config.h")
+
 include_directories(
 	"include"
 	# add the binary tree to the search path to include "config.h"

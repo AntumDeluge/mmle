@@ -1,0 +1,16 @@
+
+/* Copyright © 2025 Jordan Irwin (AntumDeluge) <antumdeluge@gmail.com>
+ *
+ * This file is part of the MMLE project & is distributed under the
+ * terms of the MIT/X11 license. See: LICENSE.txt
+ */
+
+#ifndef MMLE_CONFIG
+#define MMLE_CONFIG
+
+#define MMLE_VER_MAJ @MMLE_VER_MAJ@
+#define MMLE_VER_MIN @MMLE_VER_MIN@
+#define MMLE_VER_REL @MMLE_VER_REL@
+#define MMLE_VERSION (char*) "@MMLE_VER_MAJ@.@MMLE_VER_MIN@.@MMLE_VER_REL@"
+
+#endif /* MMLE_CONFIG */

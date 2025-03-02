@@ -8,6 +8,8 @@
 #ifndef MMLE_MAIN
 #define MMLE_MAIN
 
+#include "MMLE/config.h"
+
 #include "MMLE/Path.hpp"
 #include "MMLE/String.hpp"
 #include "MMLE/Time.hpp"
