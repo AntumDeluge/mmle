@@ -21,7 +21,7 @@ namespace MMLE {
 		 *  @return
 		 *      Path formatted with native directory/node delimeters.
 		 */
-		extern std::string normalizePath(const std::string path);
+		extern std::string norm(const std::string path);
 
 		/** Concatenates two paths into one.
 		 *

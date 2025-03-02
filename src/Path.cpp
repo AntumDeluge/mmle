@@ -40,10 +40,10 @@ string trimLeadingCWD(const string path) {
 	return path;
 }
 
-string normalizePath(const string path) {
+string norm(const string path) {
 	if (checkEmptyString(path)) {
 		// replace empty path with relative cwd
-		return normalizePath("./");
+		return norm("./");
 	}
 
 	string new_path = path;
@@ -79,7 +79,7 @@ string normalizePath(const string path) {
 
 
 string joinPath(const string a, const string b) {
-	return normalizePath(a + "/" + b);
+	return norm(a + "/" + b);
 }
 
 
@@ -112,7 +112,7 @@ string getDirName(string path) {
 		return ".";
 	} else if (split == 0) {
 		// root of the filesystem
-		return normalizePath("/");
+		return norm("/");
 	} else {
 		path.erase(split, path.length() - split);
 	}
