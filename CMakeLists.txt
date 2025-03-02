@@ -17,7 +17,7 @@ include_directories(
 	"${PROJECT_BINARY_DIR}"
 )
 
-file(GLOB_RECURSE SRC_FILES "${PROJECT_SOURCE_DIR}/src/" "*.cpp")
+file(GLOB_RECURSE SRC_FILES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 
 if(BUILD_SHARED_LIBS)
 	message("-- Configuring to build shared libs")
