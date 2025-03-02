@@ -80,7 +80,7 @@ string MMLE::Path::join(const string a, const string b) {
 }
 
 
-string MMLE::Path::getBaseName(string path) {
+string MMLE::Path::basename(string path) {
 	int split;
 
 #ifdef __WIN32__
@@ -96,7 +96,7 @@ string MMLE::Path::getBaseName(string path) {
 }
 
 
-string MMLE::Path::getDirName(string path) {
+string MMLE::Path::dirname(string path) {
 	int split;
 
 #ifdef __WIN32__

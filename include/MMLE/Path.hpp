@@ -41,7 +41,7 @@ namespace MMLE {
 		 *  @return
 		 *      Name of last node in path.
 		 */
-		std::string getBaseName(std::string path);
+		std::string basename(std::string path);
 
 		/** Removes last node from path name.
 		 *
@@ -50,7 +50,7 @@ namespace MMLE {
 		 *  @return
 		 *      Path to parent directory.
 		 */
-		std::string getDirName(std::string path);
+		std::string dirname(std::string path);
 	}
 }
 
