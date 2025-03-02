@@ -9,6 +9,7 @@
 #define MMLE_MAIN
 
 #include "MMLE/Path.hpp"
+#include "MMLE/Time.hpp"
 #include "MMLE/Util.hpp"
 
 #endif /* MMLE_MAIN */

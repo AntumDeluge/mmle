@@ -39,20 +39,6 @@ namespace MMLE {
 		 *      `true` if empty or only whitepace characters found.
 		 */
 		extern bool checkEmptyString(const std::string st);
-
-		/** Retrieves current timestamp in milliseconds. */
-		extern long long currentTimeMillis();
-
-		/** Formats duration for printing.
-		 *
-		 *  @param ts
-		 *      Process start timestamp (milliseconds).
-		 *  @param te
-		 *      Process end timestamp (milliseconds).
-		 *  @return
-		 *      String formatted for readability.
-		 */
-		extern std::string formatDuration(const long long ts, const long long te);
 	}
 }
 
