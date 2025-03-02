@@ -5,8 +5,8 @@
  * terms of the MIT/X11 license. See: LICENSE.txt
  */
 
-#include "paths.h"
-#include "util.h"
+#include "Path.hpp"
+#include "Util.hpp"
 
 #include <algorithm> // transform
 #include <sstream>

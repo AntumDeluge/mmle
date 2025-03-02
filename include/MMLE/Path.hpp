@@ -5,8 +5,8 @@
  * terms of the MIT/X11 license. See: LICENSE.txt
  */
 
-#ifndef B2H_PATHS_H_
-#define B2H_PATHS_H_
+#ifndef MMLE_PATH
+#define MMLE_PATH
 
 #include <string>
 
@@ -50,4 +50,4 @@ extern std::string getBaseName(std::string path);
 extern std::string getDirName(std::string path);
 
 
-#endif /* B2H_PATHS_H_ */
+#endif /* MMLE_PATH */

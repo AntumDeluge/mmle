@@ -5,7 +5,7 @@
  * terms of the MIT/X11 license. See: LICENSE.txt
  */
 
-#include "util.h"
+#include "Util.hpp"
 
 #include <chrono>
 #include <cmath>

@@ -7,8 +7,8 @@
 
 // misc utility functions
 
-#ifndef B2H_UTIL_H_
-#define B2H_UTIL_H_
+#ifndef MMLE_UTIL
+#define MMLE_UTIL
 
 #include <string>
 
@@ -52,4 +52,4 @@ extern long long currentTimeMillis();
 extern std::string formatDuration(const long long ts, const long long te);
 
 
-#endif /* B2H_UTIL_H_ */
+#endif /* MMLE_UTIL */
