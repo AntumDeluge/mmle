@@ -12,9 +12,8 @@ include("${PROJECT_SOURCE_DIR}/cmake/options.cmake")
 configure_file("config.h.in" "include/${PROJECT_NAME}/config.h")
 
 include_directories(
-	"include"
-	# add the binary tree to the search path to include "config.h"
-	"${PROJECT_BINARY_DIR}"
+	# use binary output tree so "config.h" is included
+	"${PROJECT_BINARY_DIR}/include"
 )
 
 file(GLOB_RECURSE SRC_FILES "${PROJECT_SOURCE_DIR}/src/*.cpp")
