@@ -27,6 +27,20 @@ if(BUILD_SHARED_LIBS)
 		# .dll on Windows
 		RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib"
 	)
+	if(NOT DEBUG)
+		add_custom_command(
+			TARGET libMMLE_shared POST_BUILD
+			# strip debugging symbols
+			COMMAND ${CMAKE_OBJCOPY} --strip-all "$<TARGET_FILE:libMMLE_shared>"
+		)
+		if(MINGW OR CYGWIN)
+			# shared linking library (.dll.a) doesn't get stripped by default under GNU C for Windows
+			add_custom_command(
+				TARGET libMMLE_shared POST_BUILD
+				COMMAND ${CMAKE_OBJCOPY} --strip-all "$<TARGET_FILE:libMMLE_shared>.a"
+			)
+		endif()
+	endif()
 endif()
 if(BUILD_STATIC_LIBS)
 	message("-- Configuring to build static libs")
@@ -36,6 +50,13 @@ if(BUILD_STATIC_LIBS)
 		OUTPUT_NAME "MMLE"
 		ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib"
 	)
+	if(NOT DEBUG)
+		add_custom_command(
+			TARGET libMMLE_static POST_BUILD
+			# strip debugging symbols
+			COMMAND ${CMAKE_OBJCOPY} --strip-all "$<TARGET_FILE:libMMLE_static>"
+		)
+	endif()
 endif()
 
 file(COPY "${PROJECT_SOURCE_DIR}/include" DESTINATION "${PROJECT_BINARY_DIR}")
