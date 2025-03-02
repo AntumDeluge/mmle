@@ -81,38 +81,27 @@ string MMLE::Path::join(const string a, const string b) {
 
 
 string MMLE::Path::basename(string path) {
-	int split;
-
-#ifdef __WIN32__
-	split = path.find_last_of('\\');
-#else
-	split = path.find_last_of('/');
-#endif
-	if (split >= 0) {
-		path.erase(0, split + 1);
+	string _basename = path;
+	int s_idx = path.find_last_of('/', '\\');
+	if (s_idx >= 0) {
+		_basename.erase(0, s_idx + 1);
 	}
-
-	return path;
+	return _basename;
 }
 
 
 string MMLE::Path::dirname(string path) {
-	int split;
-
-#ifdef __WIN32__
-	split = path.find_last_of('\\');
-#else
-	split = path.find_last_of('/');
-#endif
-	if (split < 0) {
+	string _dirname = path;
+	int s_idx = path.find_last_of('/', '\\');
+	if (s_idx < 0) {
 		// working directory
 		return ".";
-	} else if (split == 0) {
+	} else if (s_idx == 0) {
 		// root of the filesystem
 		return MMLE::Path::norm("/");
 	} else {
-		path.erase(split, path.length() - split);
+		_dirname.erase(s_idx, path.length() - s_idx);
 	}
 
-	return path;
+	return MMLE::Path::norm(_dirname);
 }
