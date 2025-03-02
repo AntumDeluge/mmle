@@ -5,9 +5,9 @@
 
 _(this project is a work-in-progress & may not yet be fully functional)_
 
-MMLE (Make My Life Easier) is a high level, cross-platform, header-only, C++ library for common
-tasks. Originally written as part of [Binary to Header](https://antumdeluge.github.io/bin2header),
-it is now a separate project.
+MMLE (Make My Life Easier) is a high level, cross-platform, C++ library for common tasks.
+Originally written as part of [Binary to Header](https://antumdeluge.github.io/bin2header), it is
+now a separate project.
 
 ## Licensing
 

@@ -8,8 +8,8 @@
 #include <algorithm> // transform
 #include <sstream>
 
-#include "Path.hpp"
-#include "Util.hpp"
+#include "MMLE/Path.hpp"
+#include "MMLE/Util.hpp"
 
 using namespace std;
 
