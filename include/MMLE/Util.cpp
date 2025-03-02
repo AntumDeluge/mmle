@@ -5,16 +5,16 @@
  * terms of the MIT/X11 license. See: LICENSE.txt
  */
 
-#include "Util.hpp"
-
 #include <chrono>
 #include <cmath>
 #include <sstream>
 
+#include "Util.hpp"
+
 using namespace std;
 
 
-string replaceAll(string st, const string a, const string b) {
+string Util::replaceAll(string st, const string a, const string b) {
 	if (a == b) {
 		// don't get stuck in an infinite loop
 		return st;
@@ -32,7 +32,7 @@ string replaceAll(string st, const string a, const string b) {
 }
 
 
-bool checkEmptyString(const string st) {
+bool Util::checkEmptyString(const string st) {
 	if (st.empty()) {
 		return true;
 	}
@@ -51,13 +51,13 @@ bool checkEmptyString(const string st) {
 }
 
 
-long long currentTimeMillis() {
+long long Util::currentTimeMillis() {
 	return chrono::duration_cast<chrono::milliseconds>(
 			chrono::system_clock::now().time_since_epoch()).count();
 }
 
 
-string formatDuration(const long long ts, const long long te) {
+string Util::formatDuration(const long long ts, const long long te) {
 	const int duration = te - ts;
 	stringstream dmsg;
 

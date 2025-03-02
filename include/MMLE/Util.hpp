@@ -13,43 +13,45 @@
 #include <string>
 
 
-/** Replaces all instances of substring in a string.
- *
- *  @param st
- *      Source string.
- *  @param a
- *      Substring to be replaced.
- *  @param b
- *      String to be inserted in place.
- *  @return
- *      String.
- */
-std::string replaceAll(std::string st, const std::string a, const std::string b);
+namespace Util {
 
-/** Checks for an empty string.
- *
- *  Checks string length & if contains only whitespace characters.
- *
- *  @param st
- *      String to be checked.
- *  @return
- *      `true` if empty or only whitepace characters found.
- */
-extern bool checkEmptyString(const std::string st);
+	/** Replaces all instances of substring in a string.
+	 *
+	 *  @param st
+	 *      Source string.
+	 *  @param a
+	 *      Substring to be replaced.
+	 *  @param b
+	 *      String to be inserted in place.
+	 *  @return
+	 *      String.
+	 */
+	std::string replaceAll(std::string st, const std::string a, const std::string b);
 
-/** Retrieves current timestamp in milliseconds. */
-extern long long currentTimeMillis();
+	/** Checks for an empty string.
+	 *
+	 *  Checks string length & if contains only whitespace characters.
+	 *
+	 *  @param st
+	 *      String to be checked.
+	 *  @return
+	 *      `true` if empty or only whitepace characters found.
+	 */
+	extern bool checkEmptyString(const std::string st);
 
-/** Formats duration for printing.
- *
- *  @param ts
- *      Process start timestamp (milliseconds).
- *  @param te
- *      Process end timestamp (milliseconds).
- *  @return
- *      String formatted for readability.
- */
-extern std::string formatDuration(const long long ts, const long long te);
+	/** Retrieves current timestamp in milliseconds. */
+	extern long long currentTimeMillis();
 
+	/** Formats duration for printing.
+	 *
+	 *  @param ts
+	 *      Process start timestamp (milliseconds).
+	 *  @param te
+	 *      Process end timestamp (milliseconds).
+	 *  @return
+	 *      String formatted for readability.
+	 */
+	extern std::string formatDuration(const long long ts, const long long te);
+}
 
 #endif /* MMLE_UTIL */
