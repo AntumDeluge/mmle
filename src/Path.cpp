@@ -5,8 +5,14 @@
  * terms of the MIT/X11 license. See: LICENSE.txt
  */
 
+#define fs_supported __cplusplus >= 201703L
+
 #include <algorithm> // transform
 #include <sstream>
+
+#if fs_supported
+#include <filesystem>
+#endif
 
 using namespace std;
 
@@ -81,16 +87,23 @@ string MMLE::Path::join(const string a, const string b) {
 
 
 string MMLE::Path::basename(string path) {
+#if fs_supported
+	return filesystem::path(path).filename().string();
+#else
 	string _basename = path;
 	int s_idx = path.find_last_of('/', '\\');
 	if (s_idx >= 0) {
 		_basename.erase(0, s_idx + 1);
 	}
 	return _basename;
+#endif /* fs_supported */
 }
 
 
 string MMLE::Path::dirname(string path) {
+#if fs_supported
+	string _dirname = filesystem::path(path).parent_path().string();
+#else
 	string _dirname = path;
 	int s_idx = path.find_last_of('/', '\\');
 	if (s_idx < 0) {
@@ -102,6 +115,6 @@ string MMLE::Path::dirname(string path) {
 	} else {
 		_dirname.erase(s_idx, path.length() - s_idx);
 	}
-
+#endif /* fs_supported */
 	return MMLE::Path::norm(_dirname);
 }
