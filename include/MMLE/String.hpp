@@ -36,7 +36,7 @@ namespace MMLE {
 		 *  @return
 		 *      `true` if empty or only whitepace characters found.
 		 */
-		extern bool checkEmptyString(const std::string st);
+		bool checkEmptyString(const std::string st);
 	}
 }
 

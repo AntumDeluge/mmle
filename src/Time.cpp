@@ -13,16 +13,14 @@ using namespace std;
 
 #include "MMLE/Time.hpp"
 
-using namespace MMLE::Time;
 
-
-long long currentTimeMillis() {
+long long MMLE::Time::currentTimeMillis() {
 	return chrono::duration_cast<chrono::milliseconds>(
 			chrono::system_clock::now().time_since_epoch()).count();
 }
 
 
-string formatDuration(const long long ts, const long long te) {
+string MMLE::Time::formatDuration(const long long ts, const long long te) {
 	const int duration = te - ts;
 	stringstream dmsg;
 

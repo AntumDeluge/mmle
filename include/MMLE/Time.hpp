@@ -15,7 +15,7 @@ namespace MMLE {
 	namespace Time {
 
 		/** Retrieves current timestamp in milliseconds. */
-		extern long long currentTimeMillis();
+		long long currentTimeMillis();
 
 		/** Formats duration for printing.
 		 *
@@ -26,7 +26,7 @@ namespace MMLE {
 		 *  @return
 		 *      String formatted for readability.
 		 */
-		extern std::string formatDuration(const long long ts, const long long te);
+		std::string formatDuration(const long long ts, const long long te);
 	}
 }
 

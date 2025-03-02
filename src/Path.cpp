@@ -13,9 +13,6 @@ using namespace std;
 #include "MMLE/Path.hpp"
 #include "MMLE/String.hpp"
 
-using namespace MMLE::Path;
-using namespace MMLE::String;
-
 
 /** Removes relative cwd prefix from path.
  *
@@ -40,17 +37,17 @@ string trimLeadingCWD(const string path) {
 	return path;
 }
 
-string norm(const string path) {
-	if (checkEmptyString(path)) {
+string MMLE::Path::norm(const string path) {
+	if (MMLE::String::checkEmptyString(path)) {
 		// replace empty path with relative cwd
-		return norm("./");
+		return MMLE::Path::norm("./");
 	}
 
 	string new_path = path;
 
 #ifdef __WIN32__
 	const string sep = "\\";
-	new_path = replaceAll(replaceAll(new_path, "/", sep), "\\\\", sep);
+	new_path = MMLE::String::replaceAll(MMLE::String::replaceAll(new_path, "/", sep), "\\\\", sep);
 
 	// MSYS2/MinGW paths
 	// FIXME: I don't remember why this is used
@@ -63,11 +60,11 @@ string norm(const string path) {
 	}
 #else
 	const string sep = "/";
-	new_path = replaceAll(replaceAll(new_path, "\\", sep), "//", sep);
+	new_path = MMLE::String::replaceAll(MMLE::String::replaceAll(new_path, "\\", sep), "//", sep);
 #endif
 
 	// remove redundant node separators
-	new_path = replaceAll(new_path, sep + "." + sep, sep);
+	new_path = MMLE::String::replaceAll(new_path, sep + "." + sep, sep);
 
 	// remove trailing node separator
 	if (new_path.substr(new_path.length() - 1, 1) == sep) {
@@ -78,12 +75,12 @@ string norm(const string path) {
 }
 
 
-string join(const string a, const string b) {
+string MMLE::Path::join(const string a, const string b) {
 	return norm(a + "/" + b);
 }
 
 
-string getBaseName(string path) {
+string MMLE::Path::getBaseName(string path) {
 	int split;
 
 #ifdef __WIN32__
@@ -99,7 +96,7 @@ string getBaseName(string path) {
 }
 
 
-string getDirName(string path) {
+string MMLE::Path::getDirName(string path) {
 	int split;
 
 #ifdef __WIN32__

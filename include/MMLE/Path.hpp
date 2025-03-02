@@ -21,7 +21,7 @@ namespace MMLE {
 		 *  @return
 		 *      Path formatted with native directory/node delimeters.
 		 */
-		extern std::string norm(const std::string path);
+		std::string norm(const std::string path);
 
 		/** Concatenates two paths into one.
 		 *
@@ -32,7 +32,7 @@ namespace MMLE {
 		 *  @return
 		 *     Concatenated path.
 		 */
-		extern std::string join(const std::string a, const std::string b);
+		std::string join(const std::string a, const std::string b);
 
 		/** Removes path to parent directory from path name.
 		 *
@@ -41,7 +41,7 @@ namespace MMLE {
 		 *  @return
 		 *      Name of last node in path.
 		 */
-		extern std::string getBaseName(std::string path);
+		std::string getBaseName(std::string path);
 
 		/** Removes last node from path name.
 		 *
@@ -50,7 +50,7 @@ namespace MMLE {
 		 *  @return
 		 *      Path to parent directory.
 		 */
-		extern std::string getDirName(std::string path);
+		std::string getDirName(std::string path);
 	}
 }
 

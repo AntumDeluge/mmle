@@ -9,10 +9,8 @@ using namespace std;
 
 #include "MMLE/String.hpp"
 
-using namespace MMLE::String;
 
-
-string replaceAll(string st, const string a, const string b) {
+string MMLE::String::replaceAll(string st, const string a, const string b) {
 	if (a == b) {
 		// don't get stuck in an infinite loop
 		return st;
@@ -30,7 +28,7 @@ string replaceAll(string st, const string a, const string b) {
 }
 
 
-bool checkEmptyString(const string st) {
+bool MMLE::String::checkEmptyString(const string st) {
 	if (st.empty()) {
 		return true;
 	}
