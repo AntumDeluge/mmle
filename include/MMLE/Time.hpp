@@ -12,7 +12,7 @@
 
 
 namespace MMLE {
-	namespace TIME {
+	namespace Time {
 
 		/** Retrieves current timestamp in milliseconds. */
 		extern long long currentTimeMillis();
