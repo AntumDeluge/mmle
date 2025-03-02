@@ -20,7 +20,6 @@ include_directories(
 file(GLOB_RECURSE SRC_FILES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 
 if(BUILD_SHARED_LIBS)
-	message("-- Configuring to build shared libs")
 	add_library(libMMLE_shared SHARED ${SRC_FILES})
 	set_target_properties(
 		libMMLE_shared PROPERTIES
@@ -36,16 +35,16 @@ if(BUILD_SHARED_LIBS)
 			COMMAND ${CMAKE_OBJCOPY} --strip-all "$<TARGET_FILE:libMMLE_shared>"
 		)
 		if(MINGW OR CYGWIN)
-			# shared linking library (.dll.a) doesn't get stripped by default under GNU C for Windows
+			# strip shared linking library archive (.dll.a)
 			add_custom_command(
 				TARGET libMMLE_shared POST_BUILD
 				COMMAND ${CMAKE_OBJCOPY} --strip-all "$<TARGET_FILE:libMMLE_shared>.a"
 			)
 		endif()
 	endif()
+	message("-- Configured to build shared libs")
 endif()
 if(BUILD_STATIC_LIBS)
-	message("-- Configuring to build static libs")
 	add_library(libMMLE_static STATIC ${SRC_FILES})
 	set_target_properties(
 		libMMLE_static PROPERTIES
@@ -59,6 +58,7 @@ if(BUILD_STATIC_LIBS)
 			COMMAND ${CMAKE_OBJCOPY} --strip-all "$<TARGET_FILE:libMMLE_static>"
 		)
 	endif()
+	message("-- Configured to build static libs")
 endif()
 
 file(COPY "${PROJECT_SOURCE_DIR}/include" DESTINATION "${PROJECT_BINARY_DIR}")
