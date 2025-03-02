@@ -78,7 +78,7 @@ string norm(const string path) {
 }
 
 
-string joinPath(const string a, const string b) {
+string join(const string a, const string b) {
 	return norm(a + "/" + b);
 }
 
