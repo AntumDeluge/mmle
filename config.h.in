@@ -13,4 +13,6 @@
 #define MMLE_VER_REL @MMLE_VER_REL@
 #define MMLE_VERSION (char*) "@MMLE_VER_MAJ@.@MMLE_VER_MIN@.@MMLE_VER_REL@"
 
+#define fs_supported __cplusplus >= 201703L
+
 #endif /* MMLE_CONFIG */

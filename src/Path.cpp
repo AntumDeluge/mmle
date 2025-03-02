@@ -5,7 +5,7 @@
  * terms of the MIT/X11 license. See: LICENSE.txt
  */
 
-#define fs_supported __cplusplus >= 201703L
+#include "MMLE/config.h"
 
 #include <algorithm> // transform
 #include <sstream>
