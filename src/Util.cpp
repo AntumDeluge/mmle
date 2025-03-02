@@ -9,12 +9,14 @@
 #include <cmath>
 #include <sstream>
 
-#include "MMLE/Util.hpp"
-
 using namespace std;
 
+#include "MMLE/Util.hpp"
 
-string Util::replaceAll(string st, const string a, const string b) {
+using namespace MMLE::Util;
+
+
+string replaceAll(string st, const string a, const string b) {
 	if (a == b) {
 		// don't get stuck in an infinite loop
 		return st;
@@ -32,7 +34,7 @@ string Util::replaceAll(string st, const string a, const string b) {
 }
 
 
-bool Util::checkEmptyString(const string st) {
+bool checkEmptyString(const string st) {
 	if (st.empty()) {
 		return true;
 	}
@@ -51,13 +53,13 @@ bool Util::checkEmptyString(const string st) {
 }
 
 
-long long Util::currentTimeMillis() {
+long long currentTimeMillis() {
 	return chrono::duration_cast<chrono::milliseconds>(
 			chrono::system_clock::now().time_since_epoch()).count();
 }
 
 
-string Util::formatDuration(const long long ts, const long long te) {
+string formatDuration(const long long ts, const long long te) {
 	const int duration = te - ts;
 	stringstream dmsg;
 

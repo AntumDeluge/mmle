@@ -8,10 +8,13 @@
 #include <algorithm> // transform
 #include <sstream>
 
+using namespace std;
+
 #include "MMLE/Path.hpp"
 #include "MMLE/Util.hpp"
 
-using namespace std;
+using namespace MMLE::Path;
+using namespace MMLE::Util;
 
 
 /** Removes relative cwd prefix from path.
@@ -21,7 +24,7 @@ using namespace std;
  *  @return
  *      Trimmed path.
  */
-string Path::trimLeadingCWD(const string path) {
+string trimLeadingCWD(const string path) {
 #ifdef __WIN32__
 	if (path.substr(0, 3) == ".\\\\") {
 		return path.substr(3);
@@ -37,8 +40,8 @@ string Path::trimLeadingCWD(const string path) {
 	return path;
 }
 
-string Path::normalizePath(const string path) {
-	if (Util::checkEmptyString(path)) {
+string normalizePath(const string path) {
+	if (checkEmptyString(path)) {
 		// replace empty path with relative cwd
 		return normalizePath("./");
 	}
@@ -47,7 +50,7 @@ string Path::normalizePath(const string path) {
 
 #ifdef __WIN32__
 	const string sep = "\\";
-	new_path = Util::replaceAll(Util::replaceAll(new_path, "/", sep), "\\\\", sep);
+	new_path = replaceAll(replaceAll(new_path, "/", sep), "\\\\", sep);
 
 	// MSYS2/MinGW paths
 	// FIXME: I don't remember why this is used
@@ -60,11 +63,11 @@ string Path::normalizePath(const string path) {
 	}
 #else
 	const string sep = "/";
-	new_path = Util::replaceAll(Util::replaceAll(new_path, "\\", sep), "//", sep);
+	new_path = replaceAll(replaceAll(new_path, "\\", sep), "//", sep);
 #endif
 
 	// remove redundant node separators
-	new_path = Util::replaceAll(new_path, sep + "." + sep, sep);
+	new_path = replaceAll(new_path, sep + "." + sep, sep);
 
 	// remove trailing node separator
 	if (new_path.substr(new_path.length() - 1, 1) == sep) {
@@ -75,12 +78,12 @@ string Path::normalizePath(const string path) {
 }
 
 
-string Path::joinPath(const string a, const string b) {
+string joinPath(const string a, const string b) {
 	return normalizePath(a + "/" + b);
 }
 
 
-string Path::getBaseName(string path) {
+string getBaseName(string path) {
 	int split;
 
 #ifdef __WIN32__
@@ -96,7 +99,7 @@ string Path::getBaseName(string path) {
 }
 
 
-string Path::getDirName(string path) {
+string getDirName(string path) {
 	int split;
 
 #ifdef __WIN32__
