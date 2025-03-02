@@ -5,16 +5,14 @@
  * terms of the MIT/X11 license. See: LICENSE.txt
  */
 
-// misc utility functions
-
-#ifndef MMLE_UTIL
-#define MMLE_UTIL
+#ifndef MMLE_STRING
+#define MMLE_STRING
 
 #include <string>
 
 
 namespace MMLE {
-	namespace Util {
+	namespace String {
 
 		/** Replaces all instances of substring in a string.
 		 *
@@ -42,4 +40,4 @@ namespace MMLE {
 	}
 }
 
-#endif /* MMLE_UTIL */
+#endif /* MMLE_STRING */

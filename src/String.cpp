@@ -7,9 +7,9 @@
 
 using namespace std;
 
-#include "MMLE/Util.hpp"
+#include "MMLE/String.hpp"
 
-using namespace MMLE::Util;
+using namespace MMLE::String;
 
 
 string replaceAll(string st, const string a, const string b) {

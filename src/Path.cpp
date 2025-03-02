@@ -11,10 +11,10 @@
 using namespace std;
 
 #include "MMLE/Path.hpp"
-#include "MMLE/Util.hpp"
+#include "MMLE/String.hpp"
 
 using namespace MMLE::Path;
-using namespace MMLE::Util;
+using namespace MMLE::String;
 
 
 /** Removes relative cwd prefix from path.
