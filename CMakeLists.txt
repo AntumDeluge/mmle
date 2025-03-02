@@ -32,13 +32,14 @@ if(BUILD_SHARED_LIBS)
 		add_custom_command(
 			TARGET libMMLE_shared POST_BUILD
 			# strip debugging symbols
-			COMMAND ${CMAKE_OBJCOPY} --strip-all "$<TARGET_FILE:libMMLE_shared>"
+			COMMAND ${CMAKE_OBJCOPY} --strip-debug "$<TARGET_FILE:libMMLE_shared>"
 		)
 		if(MINGW OR CYGWIN)
 			# strip shared linking library archive (.dll.a)
 			add_custom_command(
 				TARGET libMMLE_shared POST_BUILD
-				COMMAND ${CMAKE_OBJCOPY} --strip-all "$<TARGET_FILE:libMMLE_shared>.a"
+				# strip debugging symbols
+				COMMAND ${CMAKE_OBJCOPY} --strip-debug "${PROJECT_BINARY_DIR}/lib/libMMLE.dll.a"
 			)
 		endif()
 	endif()
@@ -55,7 +56,7 @@ if(BUILD_STATIC_LIBS)
 		add_custom_command(
 			TARGET libMMLE_static POST_BUILD
 			# strip debugging symbols
-			COMMAND ${CMAKE_OBJCOPY} --strip-all "$<TARGET_FILE:libMMLE_static>"
+			COMMAND ${CMAKE_OBJCOPY} --strip-debug "$<TARGET_FILE:libMMLE_static>"
 		)
 	endif()
 	message("-- Configured to build static libs")
