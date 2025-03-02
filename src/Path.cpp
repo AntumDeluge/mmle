@@ -76,7 +76,7 @@ string MMLE::Path::norm(const string path) {
 
 
 string MMLE::Path::join(const string a, const string b) {
-	return norm(a + "/" + b);
+	return MMLE::Path::norm(a + "/" + b);
 }
 
 
@@ -109,7 +109,7 @@ string MMLE::Path::dirname(string path) {
 		return ".";
 	} else if (split == 0) {
 		// root of the filesystem
-		return norm("/");
+		return MMLE::Path::norm("/");
 	} else {
 		path.erase(split, path.length() - split);
 	}
