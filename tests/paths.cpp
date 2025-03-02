@@ -81,7 +81,7 @@ int main() {
 #endif
 
 	tcount++;
-	result = MMLE::Path::getBaseName(t3);
+	result = MMLE::Path::basename(t3);
 
 	if (target.compare(result) != 0) {
 		cerr << "FAIL (test " << tcount << "): Expected \"" << target << "\" but got \"" << result
@@ -104,7 +104,7 @@ int main() {
 #endif
 
 	tcount++;
-	result = MMLE::Path::getDirName(t4);
+	result = MMLE::Path::dirname(t4);
 
 	if (target.compare(result) != 0) {
 		cerr << "FAIL (test " << tcount << "): Expected \"" << target << "\" but got \"" << result
