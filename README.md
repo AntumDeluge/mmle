@@ -12,3 +12,9 @@ it is now a separate project.
 ## Licensing
 
 - [MIT](LICENSE.txt)
+
+## Links
+
+- [Codeberg](https://codeberg.org/AntumDeluge/mmle)
+- [GitHub](http://github.com/AntumDeluge/mmle)
+- [SourceForge](https://sf.net/p/mmle)
