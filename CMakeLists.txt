@@ -63,3 +63,22 @@ if(BUILD_STATIC_LIBS)
 endif()
 
 file(COPY "${PROJECT_SOURCE_DIR}/include" DESTINATION "${PROJECT_BINARY_DIR}")
+
+if(BUILD_TESTS)
+	file(GLOB TEST_SRC_FILES "${PROJECT_SOURCE_DIR}/tests/*.cpp")
+	foreach(TEST_SRC ${TEST_SRC_FILES})
+		get_filename_component(TEST_NAME "${TEST_SRC}" NAME_WLE)
+		add_executable("${TEST_NAME}" "${TEST_SRC}")
+		target_link_libraries("${TEST_NAME}" PRIVATE -L"${PROJECT_BINARY_DIR}/lib" -lMMLE)
+		set_target_properties(
+			"${TEST_NAME}" PROPERTIES
+			OUTPUT_NAME "test_${TEST_NAME}"
+			RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin"
+		)
+		target_include_directories("${TEST_NAME}" PRIVATE
+			"${PROJECT_BINARY_DIR}/include"
+		)
+		message(DEBUG "-- Configured compilation of test: ${TEST_NAME}")
+	endforeach()
+	message("-- Configured to build tests")
+endif()
